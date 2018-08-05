@@ -16,16 +16,29 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from api.views import (UserViewSet, GroupViewSet, YachtClubViewSet, YachtViewSet)
+from api.views import ( UserViewSet,
+                        GroupViewSet,
+                        ProfileAPIView,
+                        UserCreateView,
+                        UserLoginView,
+                        YachtClubViewSet,
+                        YachtViewSet,
+                        )
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
+#router.register(r'profiles', ProfileAPIView)
 router.register(r'yachtclubs', YachtClubViewSet)
 router.register(r'yachts', YachtViewSet)
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'', include(router.urls)),
-    path(r'api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path(r'api/', include(router.urls)),
+    path(r'api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('register/', UserCreateView.as_view(), name='register'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('profiles/', ProfileAPIView.as_view(), name='profile'),
+    path('', include('www.urls'))
 ]

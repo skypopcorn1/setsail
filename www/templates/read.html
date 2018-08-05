@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>STTLD.</h1>
+    <form method="GET" action="">
+        <input type="text" name="q" placeholder="search posts" value="{{ request.GET.q}}" />
+        <input type="submit" value="Seach" />
+    </form>
+    {% for p in posts %}
+
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="thumbnail">
+            <div class="caption">
+            
+            <h3>{{ p.title }}<br><small class="timestamp">Posted {{ p.created_at|timesince }} ago</small></h3>
+            <p>{{ p.option_a }}</p>
+            {% if p.image_b %}
+            <img src='{{ p.image_a.url }}' class="feed-img img-responsive"  />
+            {% endif %}
+            <p>{{ p.option_b }}</p>
+            {% if p.image_b %}
+            <img src='{{ p.image_b.url }}' class="feed-img img-responsive" />
+            {% endif %}
+
+            {% if p.user.get_full_name %}
+                <p>Posted by: {{ p.user.get_full_name }}</p>
+            {% endif %}
+            <br>
+            <p><a href="{{ p.get_absolute_url }}" id="btn-post" class="btn btn-primary" role="button">View</a></p>
+            </div>
+            
+        </div>
+    
+    </div>
+    <div class="row"></div>
+    {% endfor %}
+
+
+
+
+{% endblock %}

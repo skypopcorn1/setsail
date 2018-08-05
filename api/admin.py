@@ -1,6 +1,23 @@
 from django.contrib import admin
-from .models import (YachtClub, Yacht)
+from .models import (Profile, YachtClub, Yacht)
 # Register your models here.
+class ProfileModelAdmin(admin.ModelAdmin):
+	list_display = [
+		"id",
+		"user",
+		"mobile",
+		]
+
+	list_display_links = [
+		"id",
+		]
+
+
+	search_fields = [ "mobile" ]
+
+	class Meta:
+		model = Profile
+
 class YachtClubModelAdmin(admin.ModelAdmin):
 	list_display = [
 		"id",
@@ -53,5 +70,6 @@ class YachtModelAdmin(admin.ModelAdmin):
 	class Meta:
 		model = Yacht
 
+admin.site.register(Profile, ProfileModelAdmin)
 admin.site.register(YachtClub, YachtClubModelAdmin)
 admin.site.register(Yacht, YachtModelAdmin)
