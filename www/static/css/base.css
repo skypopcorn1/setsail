@@ -10,70 +10,111 @@
 }*/
 
 body {
-	background-color: white;
-}
-
-fieldset {
-	border: none;
-	justify-content: center;
+	background-color: rgb(210,210,230);
+	font-family: 'Roboto', Arial, Helvetica;
+	font-weight: 100;
 }
 
 h1 {
-    font-family: PT Sans Narrow, Arial, Helvetica;
-    color: #FFF;
-    text-align: center;
+	font-family: 'Roboto', Arial, Helvetica;
+	font-size: 60px;
+	font-weight: 100;
+	color: grey;
+	text-align: center;
 }
 
 h2 {
-    font-family: PT Sans Narrow, Arial, Helvetica;
-    color: #BBB;
-    text-align: center;
+	font-family: 'Roboto', Arial, Helvetica;
+	font-weight: 100;
+	color: grey;
+	text-align: center;
 }
 
 h3 {
-    font-family: PT Sans Narrow, Arial, Helvetica;
-    color: #272525;
-    text-align: center;
+	font-family: 'Roboto', Arial, Helvetica;
+	font-weight: 100;
+	color: grey;
+	text-align: center;
+}
+
+h4 {
+	font-family: 'Roboto', Arial, Helvetica;
+	font-weight: 100;
+	color: grey;
+	text-align: center;
+}
+
+input {
+	left: 40px;
+	position: relative;
+}
+label {
+	margin-left: 30px;
+	text-align: left;
 }
 
 p {
-  text-align: center;
+  /* text-align: center; */
 }
 
-.timestamp {
-  color: #ccc;
-  font-size: 50%;
-  text-align: center;
 
+.helptext {
+	color: red;
+	display: flex;
+	font-size: 10px;
+	margin-left: 20%;
+}
+.login {
+    background-color: white;
+    border: 1px solid #a1a1a14d;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.5);
+    display: block;
+    height: 400px;
+    margin: 5% auto 10px auto;
+		padding: 2%;
+    width: 30%;
 }
 
-#wrapperHeader {
- width: 100%;
- height: 100px; /* height of the background image? */
- background: rgb(0,0,50);
- text-align:center;
+.minimalButton {
+    background-color: white;
+    border: 2px solid #a1a1a14d;
+    border-radius: 10px;
+    display: block;
+    height: 40px;
+    margin: auto;
+    width: 50%;
 }
 
-#wrapperHeaderImg {
- width: 100%;
- height: 200px; /* height of the background image? */
- /* background:url({% static "images/sailing_header.jpg" %}) repeat-x 0 0; */
- text-align:center;
+.minimalButton:hover {
+    background-color: rgba(230, 230, 250, 0.9);
+    border: 2px solid #a1a1a14d;
+    border-radius: 10px;
+    display: block;
+    height: 40px;
+    margin: auto;
+    width: 50%;
 }
 
-#wrapperHeaderImg #header {
- width:100%;
- height:100%;
- margin:0 auto;
+.minimalButton a {
+	text-decoration: none;
 }
 
-#wrapperHeader #header h1{
+.minimalButton p {
 	text-align: center;
-	vertical-align: middle;
-	line-height: 100px;
 }
 
-#wrapperHeaderImg #header img {
- 	width:100%; /* the width of the logo image */
- 	margin:0 auto;
+#loginPage p {
+	vertical-align: middle;
+	line-height: 40px;
+	margin: 0px;
+}
+
+#loginPage h2 {
+	margin-bottom: 50px;
+}
+
+#loginPage h4 {
+	margin-top: 50px;
+	margin-bottom: 5px;
 }

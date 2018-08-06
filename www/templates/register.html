@@ -5,16 +5,17 @@
   <body id="loginPage">
     <div id="wrapperHeader">
      <div id="header">
-       <h1>Set Sail</h1>
-        <div class="login" id="loginPage">
-          <h2>Welcome Back!</h2>
-        <div class="minimalButton">
-          <p>Login Here</p>
-        </div>
+      <h1>Welcome to Set Sail</h1>
+      <div class="login">
+        <h2>Club Details:</h2>
         <h4>First time users register here!</h4>
-        <div class="minimalButton">
-          <a href='{% url "club_registration" %}'><p>Register Here</p></a>
-        </div>
+          <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="minimalButton" type="submit">
+              <p>Register Here</p>
+            </button>
+          </form>
       </div>
      </div>
     </div>
