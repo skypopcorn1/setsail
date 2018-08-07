@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 	<html>
@@ -21,28 +21,6 @@
 
 		</head>
 		<body>
-			<nav id="navbar" class="blue-bar">
-        <div class="navigation" id="navigation">
-					<a href="/" title="1Password Homepage">
-						<img src="{% static "images/set_sail_logo_main.png" %}" class="logo" alt="Set Sail Logo"></a>
-            <button id="menu-button">Menu</button>
-            <ul class="burger">
-                <li class="mobile-only"><a href="https://my.1password.com/signin?l=en">Sign-up</a></li>
-            </ul>
-            <div class="signup-container">
-                <ul>
-
-
-                    <li class="signin"><a id="dynamic-signin-link" href="https://my.1password.com/signin?l=en" class="signin">Sign in</a></li>
-
-
-
-                    <li class="buy signup"><a href="{% url "club_registration" %}">Try Set Sail for Free</a></li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
 			{% block content %}
 			{% endblock %}
 		</body>
