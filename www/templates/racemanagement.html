@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <body>
+    <div id="wrapper">
+      <div class="header">
+        <h1>Set Sail</h1>
+        <h2>Crew Member Area</h2>
+      </div>
+      <div class="main">
+
+        <div class="example">
+          <h2>Upcoming Races</h2>
+            {% for race in upcoming_races %}
+            <h3 id="race-course">{{ race.race_course }}</h3>
+            <p>{{ race.race_start }}</p>
+            {% endfor %}
+
+        </div>
+        <div class="example">
+          <h2>Recent Races</h2>
+            {% for race in previous_races %}
+            <h3 id="race-course">{{ race.race_course }}</h3>
+            <p>{{ race.race_start }}</p>
+            {% endfor %}
+            <a href='{% url "add_race" %}'><div id="add-button"><div id="plus-sign">+</div></div></a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+{% endblock %}

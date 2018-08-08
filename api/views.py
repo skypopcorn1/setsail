@@ -1,5 +1,5 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from django.contrib.auth.models import User, Group
+# from django.contrib.auth.models import User, Group
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.filters import OrderingFilter, SearchFilter
@@ -12,9 +12,8 @@ from rest_framework.status import (
         HTTP_400_BAD_REQUEST,
         )
 from rest_framework.views import APIView
-from .models import (Profile, Yacht, YachtClub)
+from accounts.models import (User, Profile, Yacht, YachtClub)
 from .serializers import (  UserSerializer,
-                            GroupSerializer,
                             ProfileSerializer,
                             UserCreateSerializer,
                             UserLoginSerializer,
@@ -45,15 +44,6 @@ class UserCreateView(CreateAPIView):
         user.profile.mobile = 'Lorem ipsum'
         user.save()
 
-    # def post(self, request, *args, **kwargs):
-    #     data = request.data
-    #     serializer = UserLoginSerializer(data=data)
-    #     if serializer.is_valid(raise_exception=True):
-    #         new_data = serializer.data
-    #         new_data.save()
-    #         return Response(new_data, status=HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
-
 class UserLoginView(APIView):
     """
     API endpoint that allows a user to login
@@ -76,14 +66,6 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().select_related('profile')
     # queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
 
 class YachtClubViewSet(viewsets.ModelViewSet):
     """

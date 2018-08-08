@@ -1,35 +1,31 @@
-/*@font-face {
-    font-family: 'sinkin';
-    src: url('/SinkinSans-100Thin-webfont.eot');
-    src: url('/SinkinSans-100Thin-webfont.eot?#iefix') format('embedded-opentype'),
-        url('/SinkinSans-100Thin-webfont.woff') format('woff'),
-        url('/SinkinSans-100Thin-webfont.ttf') format('truetype'),
-        url('/SinkinSans-100Thin-webfont.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}*/
-a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, button, canvas, caption, center, cite, code, del, details, dfn, div, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video
-{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	    font-weight: inherit;
-	vertical-align: baseline;
-	letter-spacing: -.02em;
+body, html{
+  margin:0;
+  padding:0;
 }
 
-a {
-	font-size: 1em;
-	text-decoration: none;
-	color: inherit;
+body, html {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
 }
 
 body {
 	background-color: rgb(210,210,230);
 	font-family: 'Roboto', Arial, Helvetica;
 	font-weight: 100;
+	display: flex;
+	flex: 1;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+}
+
+a {
+	font-size: 1em;
+	text-decoration: none;
+	color: inherit;
 }
 
 h1 {
@@ -40,21 +36,7 @@ h1 {
 	text-align: center;
 }
 
-h2 {
-	font-family: 'Roboto', Arial, Helvetica;
-	font-weight: 100;
-	color: grey;
-	text-align: center;
-}
-
-h3 {
-	font-family: 'Roboto', Arial, Helvetica;
-	font-weight: 100;
-	color: grey;
-	text-align: center;
-}
-
-h4 {
+h2, h3, h4 {
 	font-family: 'Roboto', Arial, Helvetica;
 	font-weight: 100;
 	color: grey;
@@ -62,12 +44,18 @@ h4 {
 }
 
 input {
-	left: 40px;
-	position: relative;
+
+    border-radius: 3px;
+    line-height: 25px;
 }
 label {
-	margin-left: 30px;
-	text-align: left;
+  display: inline-block;
+	font-family: 'Roboto', Arial, Helvetica;
+	font-weight: 100;
+	color: grey;
+  width: 140px;
+  text-align: left;
+  margin-bottom: .25em;
 }
 
 nav {
@@ -96,8 +84,16 @@ p {
   /* text-align: center; */
 }
 
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+}
+
 #wrapperHeader {
-	background: linear-gradient(to top,#38bdff,#1a8cff);
+	background: linear-gradient(to top,#43C6AC, #1a8cff) ; /*linear-gradient(to right, #191654, #43C6AC) */
 	min-height: 300px;
 	border-radius: 0 0 80% 80%;
 	width: 120vw;
@@ -105,7 +101,24 @@ p {
 }
 
 #wrapperHeader h1 {
-	line-height: 300px
+	line-height: 300px;
+	margin-bottom: -100px;
+}
+
+.example{
+  background: white;
+  text-align: center;
+  font-weight: 100;
+  color: grey;
+
+  border-color: #FFF;
+  border-style: solid;
+  border-width: 0px;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+
+	padding: 3.4em;
+	margin: 2.8em;
 }
 
 .blue-bar {
@@ -113,12 +126,29 @@ p {
 	color: white;
 	font-family: 'Roboto', Arial, Helvetica;
 }
+
+.header {
+  background: linear-gradient(to top,#43C6AC, #1a8cff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*! height: 100%; */
+  margin-top: 40px;
+  width: 100%;
+}
+
+.header h2 {
+	color: white;
+}
+
 .helptext {
 	color: red;
 	display: flex;
 	font-size: 10px;
 	margin-left: 20%;
 }
+
 .login {
     background-color: white;
     border: 1px solid #a1a1a14d;
@@ -126,7 +156,45 @@ p {
     box-shadow: 5px 5px 10px rgba(0,0,0,.5);
     display: block;
     height: 400px;
-    margin: 5% auto 10px auto;
+    margin: 2% auto 10px auto;
+		padding: 2%;
+    width: 30%;
+}
+
+.loginField {
+
+    text-align: left;
+    display: block;
+    width: 99%;
+    margin-bottom: 1.5em;
+}
+
+.time-field {
+
+    text-align: left;
+    display: block;
+    width: 99%;
+    margin-bottom: 1.5em;
+}
+
+.main {
+	padding: 1em;
+  margin: 1em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border: 1px solid #FFF;
+  box-sizing: border-box;
+}
+
+.register {
+    background-color: white;
+    border: 1px solid #a1a1a14d;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.5);
+    display: block;
+    height: 100%;
+    margin: auto;
 		padding: 2%;
     width: 30%;
 }
@@ -202,7 +270,8 @@ nav .navigation #menu-button {
 @media(max-width:963px) {
  nav .navigation #menu-button {
   margin:20px 0 20px 20px;
-  font-weight:600;
+	color: white;
+	font-weight:400;
   font-size:18px;
   display:block;
   float:left;
@@ -277,6 +346,9 @@ nav .navigation .signup-container .buy a:hover,nav .navigation .signup-container
     background-color: white;
     border: 2px solid #a1a1a14d;
     border-radius: 10px;
+    color: grey;
+    font-size: 20px;
+    font-weight: 100;
     display: block;
     height: 40px;
     margin: auto;
@@ -287,6 +359,7 @@ nav .navigation .signup-container .buy a:hover,nav .navigation .signup-container
     background-color: rgba(230, 230, 250, 0.9);
     border: 2px solid #a1a1a14d;
     border-radius: 10px;
+    font-size: 30px;
     display: block;
     height: 40px;
     margin: auto;
@@ -299,6 +372,29 @@ nav .navigation .signup-container .buy a:hover,nav .navigation .signup-container
 
 .minimalButton p {
 	text-align: center;
+	font-size: 15px;
+	font-family: 'Roboto', Arial, Helvetica;
+	font-weight: 100;
+}
+
+#add-button {
+  border-radius: 50%;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  width: 18%;
+  position: relative;
+  top: -68%;
+  right: -126%;
+  background: white;
+  height: 16%;
+}
+
+#plus-sign {
+  text-align: center;
+  font-size: 45px;
+  font-family: 'Roboto', Arial, Helvetica;
+  font-weight: 100;
+  position: relative;
+  top: 9%;
 }
 
 #loginPage p {
@@ -315,4 +411,67 @@ nav .navigation .signup-container .buy a:hover,nav .navigation .signup-container
 #loginPage h4 {
 	margin-top: 50px;
 	margin-bottom: 5px;
+}
+
+#race-course {
+  background: lightgray;
+  margin: auto;
+  padding: 1em;
+}
+
+
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-weight: 400px;
+  margin: 20px 0px;
+  width: 100%;
+}
+.custom-select select {
+   display: none; /*hide original SELECT element: */
+ 	}
+.select-selected {
+  background-color: DodgerBlue;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
 }

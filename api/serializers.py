@@ -1,7 +1,7 @@
 from django.db import IntegrityError
-from django.contrib.auth.models import User, Group
+# from django.contrib.auth.models import User, Group
 from django.core.exceptions import (ValidationError)
-from .models import (Profile, YachtClub, Yacht)
+from accounts.models import (User, Profile, YachtClub, Yacht)
 from rest_framework.response import Response
 from rest_framework.serializers import (
         CharField,
@@ -115,11 +115,6 @@ class UserSerializer(HyperlinkedModelSerializer):
         model = User
         fields = ('url', 'username', 'email', 'first_name','last_name', 'groups')
 
-
-class GroupSerializer(HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ('url', 'name')
 
 class YachtClubSerializer(HyperlinkedModelSerializer):
     class Meta:

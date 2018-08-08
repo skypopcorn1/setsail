@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <body>
+    <div id="wrapper">
+      <div class="header">
+        <h1>Set Sail</h1>
+        <h2>Club Management Area</h2>
+      </div>
+      <div class="main">
+
+        <a href='{% url "race_management" %}'><div class="example">Manage Seasons</div></a>
+        <a href='{% url "race_management" %}'><div class="example">Manage Divisions</div></a>
+        <a href='{% url "race_management" %}'><div class="example">Manage Races</div></a>
+
+      </div>
+    </div>
+  </body>
+
+{% endblock %}

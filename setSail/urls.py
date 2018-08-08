@@ -16,9 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from api.views import ( UserViewSet,
-                        GroupViewSet,
-                        ProfileAPIView,
+from api.views import ( ProfileAPIView,
                         UserCreateView,
                         UserLoginView,
                         YachtClubViewSet,
@@ -26,8 +24,8 @@ from api.views import ( UserViewSet,
                         )
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'groups', GroupViewSet)
+# router.register(r'users', UserViewSet)
+# router.register(r'groups', GroupViewSet)
 #router.register(r'profiles', ProfileAPIView)
 router.register(r'yachtclubs', YachtClubViewSet)
 router.register(r'yachts', YachtViewSet)

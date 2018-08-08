@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <body id="loginPage">
+    <div id="wrapperHeader">
+     <div id="header">
+      <h1>Race Management (Enter Upcoming Races)</h1>
+      <div class="login">
+        <h2>Race Entry Form</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          <div class="custom-select">
+            {{form.race_course.errors}}
+            <label for="{{ form.race_course.id_for_label }}">Course:</label>
+            {{ form.race_course }}
+          </div>
+          {{form.race_start.errors}}
+          <label for="{{ form.race_start.id_for_label }}">Start:</label>
+          {{ form.race_start }}
+          {{form.race_finish.errors}}
+          <label for="{{ form.race_finish.id_for_label }}">Finish:</label>
+          {{ form.race_finish }}
+        <button class="minimalButton" type="submit">
+          <p>Let's Go</p>
+        </button>
+          <!-- <input class="minimalButton" type="submit" value="Register Here"> -->
+        </form>
+      </div>
+     </div>
+    </div>
+    <!-- <div id="wrapperHeaderImg">
+
+     <div id="header">
+      <img src="{% static "images/sailing_header.jpg" %}" alt="logo" />
+     </div>
+    </div> -->
+    <!-- <img src="{% static "images/sailing_header.jpg" %}" style="margin:0px auto;display:block" align="middle", border="0" alt="yacht at sea"> -->
+  </body>
+
+{% endblock %}
