@@ -99,7 +99,6 @@ class UserLoginSerializer(ModelSerializer):
         fields = (
             'email',
             'password',
-            'user_role'
             )
         extra_kwargs = {
             "password": {"write_only": True,},
