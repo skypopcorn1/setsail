@@ -30,13 +30,17 @@
       </div>
      </div>
     </div>
-    <!-- <div id="wrapperHeaderImg">
-
-     <div id="header">
-      <img src="{% static "images/sailing_header.jpg" %}" alt="logo" />
-     </div>
-    </div> -->
-    <!-- <img src="{% static "images/sailing_header.jpg" %}" style="margin:0px auto;display:block" align="middle", border="0" alt="yacht at sea"> -->
   </body>
+  <script>
+  $(function() {
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      changeHour: true,
+      yearRange: "1900:2025",
+      // You can put more options here.
 
+    });
+  });
+  </script>
 {% endblock %}

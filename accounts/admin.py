@@ -3,7 +3,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import (UserAdminChangeForm, UserAdminCreationForm)
 from .models import (User, Profile, YachtClub, Yacht, Role)
-from race.models import (Race, RaceCourse,)
+from race.models import (Division, Race, RaceCourse, Season)
 
 
 class UserAdmin(BaseUserAdmin):
@@ -121,9 +121,45 @@ class RaceModelAdmin(admin.ModelAdmin):
 	class Meta:
 		model = Race
 
+class SeasonModelAdmin(admin.ModelAdmin):
+	list_display = [
+        "name",
+		"season_start",
+        "season_finish",
+		"created_at",
+		]
+
+	list_display_links = [
+		"name",
+		"created_at",
+		]
+
+	search_fields = [ "name", ]
+
+	class Meta:
+		model = Season
+
+class DivisionModelAdmin(admin.ModelAdmin):
+	list_display = [
+        "name",
+		"created_at",
+		]
+
+	list_display_links = [
+		"name",
+		"created_at",
+		]
+
+	search_fields = [ "name", ]
+
+	class Meta:
+		model = Division
+
+admin.site.register(Division, DivisionModelAdmin)
 admin.site.register(Role)
 admin.site.register(Race, RaceModelAdmin)
 admin.site.register(RaceCourse)
+admin.site.register(Season, SeasonModelAdmin)
 admin.site.register(User, UserAdmin)
 admin.site.register(Profile, ProfileModelAdmin)
 admin.site.register(YachtClub, YachtClubModelAdmin)

@@ -6,6 +6,9 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class DateTimeInput(forms.DateTimeInput):
+    input_type = 'datetime'
+
 class LoginForm(forms.Form):
     email       = forms.EmailField(widget=forms.TextInput(attrs={'class' : 'loginField'}))
     password    = forms.CharField(widget=forms.PasswordInput(attrs={'class' : 'loginField'}))
@@ -16,11 +19,13 @@ class LoginForm(forms.Form):
 
 class RaceForm(forms.ModelForm):
     race_course     = forms.CharField(label='Race Course', widget=forms.TextInput(attrs={'class' : 'time-field'}))
-    race_start      = forms.DateTimeField(label='Race Start', widget=forms.DateTimeInput(attrs={'class' : 'time-field'}))
-    race_finish     = forms.DateTimeField(label='Race Finish', widget=forms.DateTimeInput(attrs={'class' : 'time-field'}))
+    #race_finish     = forms.DateTimeField(label='Race Finish', widget=forms.DateTimeInput(attrs={'class' : 'time-field'}))
     class Meta:
         model = Race
         fields = ['race_course', 'race_start', 'race_finish']
+        widgets = {
+            'race_start': DateTimeInput(attrs={'class' : 'datepicker'}),
+        }
 
 class RegistrationForm(forms.ModelForm):
     email       = forms.EmailField(widget=forms.TextInput(attrs={'class' : 'loginField'}))
