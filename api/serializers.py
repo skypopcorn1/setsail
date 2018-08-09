@@ -45,7 +45,6 @@ class ProfileAddSerializer(ModelSerializer):
         model = Profile
         fields = ['mobile',]
 
-
 class UserCreateSerializer(ModelSerializer):
     email = EmailField(label='Email address')
     profile = ProfileAddSerializer(required=True)
@@ -95,13 +94,12 @@ class UserCreateSerializer(ModelSerializer):
 
 class UserLoginSerializer(ModelSerializer):
     email = EmailField(label='Email address')
-    username = CharField()
     class Meta:
         model = User
         fields = (
-            'username',
             'email',
             'password',
+            'user_role'
             )
         extra_kwargs = {
             "password": {"write_only": True,},
@@ -114,7 +112,6 @@ class UserSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ('url', 'username', 'email', 'first_name','last_name', 'groups')
-
 
 class YachtClubSerializer(HyperlinkedModelSerializer):
     class Meta:
